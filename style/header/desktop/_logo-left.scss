@@ -1,0 +1,26 @@
+.site-header {
+
+	@media screen and (min-width: breakpoint('desktop-nav')) {
+
+		.site-branding {
+			margin-left: 0;
+		}
+
+		#main-navigation {
+			float: right;
+
+			nav {
+				float: left;
+				margin-left: 15px;
+			}
+
+			li a {
+				line-height: $size__header-height-desktop;
+			}
+		}
+	}
+
+	form.search-form button:before {
+		right: $padding__content-desktop + 14px;
+	}
+}

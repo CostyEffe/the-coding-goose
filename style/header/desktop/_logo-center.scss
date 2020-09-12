@@ -1,0 +1,48 @@
+.site-header {
+
+	@media screen and (min-width: breakpoint('desktop-nav')) {
+
+		#site-navigation li:not(.cta-item) a,
+		button.search-toggle {
+			height: 55px;
+		}
+
+		button.search-toggle:after,
+		#site-navigation li:not(.cta-item) a {
+			line-height: 55px;
+		}
+
+		div#main-navigation {
+			padding-right: 0;
+		}
+
+		#site-navigation {
+			display: block;
+
+			li {
+				display: inline-block;
+				float: none;
+
+				&.cta-item {
+					height: 43px !important;
+				}
+
+				a {
+					display: block;
+				}
+			}
+		}
+
+		.site-branding {
+			float: none;
+			display: block;
+			padding: 15px;
+			margin: 0;
+			border-bottom: 1px solid #ddd;
+
+			img {
+				margin: 0 auto;
+			}
+		}
+	}
+}

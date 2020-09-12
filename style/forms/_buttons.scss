@@ -1,0 +1,254 @@
+//General
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.wp-block-button__link,
+.loadmore__button,
+.wp-block-svbk-card__link,
+.wp-block-svbk-hero__link,
+.more-link,
+.readmore {
+	border-width: 2px;
+	border-style: solid;
+	border-color: $color__border-button;
+	background: $color__background-button;
+	color: $color__text-button;
+	@include font-size(1);
+	text-transform: uppercase;
+	line-height: 1;
+	padding: .7em 1.2em;
+	text-decoration: none;
+	text-align: center;
+	border-radius: $border-radius__button;
+	font-weight: bold;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.35);
+	transition: background .15s ease-in-out,
+				border .15s ease-in-out,
+				color .15s ease-in-out,
+				box-shadow .15s ease-in-out;
+
+	&:visited {
+		border-color: $color__border-button;
+		color: $color__text-button;
+	}
+
+	&:hover {
+		background: $color__background-button-hover;
+		border-color: $color__border-button-hover;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.35);
+		color: $color__text-button;
+	}
+
+	&:focus,
+	&:active {
+		border-color: $color__border-button-focus;
+		background: $color__background-button-focus;
+		outline: none;
+		box-shadow: 0 0 2px rgba(0,0,0,0.4);
+		color: $color__text-button;
+	}
+
+	&:disabled {
+		opacity: .5;
+	}
+}
+
+//General with color mapping
+.wp-block-button__link {
+
+	@each $name, $value in $colors {
+
+		&.has-#{$name}-background-color {
+			background: $value;
+			border-color: $value;
+
+			&:hover {
+				background: lighten( $value, 10% );
+				border-color: lighten( $value, 10% );
+			}
+
+			&:focus,
+			&:active {
+				background: darken( $value, 5% );
+				border-color: darken( $value, 5% );
+			}
+		}
+
+		&.has-#{$name}-color {
+			color: $value;
+		}
+	}
+
+	&.has-gradient-background-color {
+		border: none;
+		transition: background .15s ease-in-out,
+		color .15s ease-in-out,
+		opacity .15s ease-in-out,
+		box-shadow .15s ease-in-out;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-image: $color__background-gradient;
+		}
+
+		&:hover {
+			opacity: .8;
+		}
+
+		&:focus,
+		&:active {
+			opacity: .9;
+		}
+	}
+}
+
+//Outline and Text Style Buttons
+.is-style-outline .wp-block-button__link,
+.wp-block-svbk-hero__button--secondary a,
+.wp-block-svbk-collapse__button,
+.wp-block-svbk-card__link,
+.loadmore__button,
+.is-style-text-button .wp-block-button__link,
+.testimonial .wp-block-button__link,
+.is-style-phone .wp-block-button__link,
+.wp-block-svbk-profile__link,
+.more-link,
+.readmore {
+	background: rgba(255,255,255,0) !important;
+	color: $color__border-button;
+
+	&:visited {
+		color: $color__border-button;
+	}
+
+	&:hover {
+		color: $color__border-button-hover;
+	}
+
+	&:focus,
+	&:active {
+		color: $color__border-button-focus;
+	}
+}
+
+.is-style-outline,
+.is-style-text-button {
+
+	.wp-block-button__link {
+
+		@each $name, $value in $colors {
+
+			&.has-#{$name}-color {
+				color: $value;
+	
+				&:hover {
+					color: lighten( $value, 10% );
+				}
+	
+				&:focus,
+				&:active {
+					color: darken( $value, 5% );
+				}
+			}
+		}
+	}
+}
+
+.is-style-outline .wp-block-button__link,
+.wp-block-svbk-hero__button--secondary a,
+.wp-block-svbk-collapse__button,
+.wp-block-svbk-card__link,
+.loadmore__button {
+	box-shadow: 0 0 0 1px transparent;
+
+	&:hover {
+		box-shadow: 0 0 0 1px $color__border-button-hover;
+	}
+
+	&:focus,
+	&:active {
+		color: $color__border-button-focus;
+		box-shadow: 0 0 0 1px $color__border-button-focus;
+	}
+
+	@each $name, $value in $colors {
+
+		&.has-#{$name}-color {
+			border-color: $value;
+
+			&:hover {
+				border-color: lighten( $value, 10% );
+				box-shadow: 0 0 0 1px lighten( $value, 10% );
+			}
+
+			&:focus,
+			&:active {
+				border-color: darken( $value, 5% );
+				box-shadow: 0 0 0 1px darken( $value, 5% );
+			}
+		}
+	}
+}
+
+.is-style-text-button .wp-block-button__link,
+.testimonial .wp-block-button__link,
+.is-style-phone .wp-block-button__link,
+.wp-block-svbk-profile__link,
+.more-link,
+.readmore {
+	border: none;
+	box-shadow: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		box-shadow: none;
+	}
+}
+
+.is-style-text-button .wp-block-button__link,
+.is-style-phone .wp-block-button__link {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+//Text + Icon
+.is-style-phone .wp-block-button__link {
+	@include font-size(1.3);
+	padding: 0;
+	color: $color__link;
+
+	&:hover,
+	&:focus {
+		background: rgba(255, 255, 255, 0);
+	}
+
+	&:hover {
+		color: $color__link-hover;
+	}
+
+	&:focus {
+		color: $color__link-focus;
+	}
+
+	&:before {
+		@include icon-content("\e930");
+		margin-right: 15px;
+		vertical-align: middle;
+	}
+}
+
+.has-arrow-icon .wp-block-button__link,
+.wp-block-svbk-card__link,
+.wp-block-svbk-profile__link,
+.readmore {
+
+	&:after {
+		@include icon-content('\e922');
+		font-size: .8em;
+		margin-left: 8px;
+	}
+}

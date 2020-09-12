@@ -1,0 +1,55 @@
+@import 'normalize';
+@import 'variables-site/variables-site';
+@import 'mixins/mixins-master';
+@import 'modules/accessibility';
+@import 'elements/elements';
+@import 'typography/critical';
+@import 'forms/critical';
+@import 'header/critical';
+@import 'navigation/critical';
+@import 'blocks/hero/critical';
+@import 'footer/critical';
+
+.domloading .site-content,
+.domready--show {
+	visibility: hidden;
+}
+
+.domready {
+
+	.domready--show {
+		visibility: visible;
+	}
+
+	.domready--hide {
+		visibility: hidden;
+	}
+}
+
+#page {
+	background: $color__background-page;
+}
+
+.site-content,
+.wrap {
+	max-width: $size__content-width;
+	padding-left: $padding__content-mobile;
+	padding-right: $padding__content-mobile;
+	margin-left: auto;
+	margin-right: auto;
+
+	@media screen and (min-width: breakpoint('tablet-landscape')) {
+		padding-left: $padding__content-tablet;
+		padding-right: $padding__content-tablet;
+	}
+
+	@media screen and (min-width: $size__content-width + $padding__content-tablet * 2) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.wrap:after {
+	@include clearfix();
+	@include clearfix-after();
+}

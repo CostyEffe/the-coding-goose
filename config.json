@@ -1,0 +1,98 @@
+{
+    "theme_version": "2.0.0",
+    
+    "theme_name" : "_svbk",
+    "theme_handle" : "_svbk",
+    
+	"content_width": 1120,
+	"page_width": 1250,
+	"page_max_width": 1440,
+	"text_width": 740,
+	"sidebar_width_ratio": 0.27,
+	
+	"main_breakpoints" : {
+	    "phone":			480,
+	    "tablet-portrait":	600,
+	    "tablet-landscape": 900,
+		"desktop":			1200,
+		"desktop-stretch":	1440,
+		"desktop-nav":		1190
+	},
+	
+	"fonts": {
+		"main" : {
+			"_source": "'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700&display=swap'",
+			"_fallback": {
+				"font-family": "'Arial'",
+				"letter-spacing": "0.5px",
+				"word-spacing": "-0.45px"
+			},
+			"font-family": "Roboto"
+		},
+		"headings" : {
+			"_source": "'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700&display=swap'",
+			"_fallback": {
+				"font-family": ["Arial", "Helvetica", "sans-serif"]
+			},
+			"font-family": "'Open Sans'"
+		}
+	},
+	
+	"font_sizes": {
+		"small":{
+			"name":"Small",
+			"shortName":"S",
+			"size":19.5
+		},
+		"normal": {
+			"name":"Normal",
+			"shortName":"M",
+			"size":22
+		},
+		"large": {
+			"name":"Large",
+			"shortName":"L",
+			"size":36.5
+		},
+		"huge": {
+			"name":"Huge",
+			"shortName":"XL",
+			"size":49.5
+		}		
+	},
+	
+	"icons": {
+		"theme" : {
+			"_source": "'style/icons/style.css'",
+			"_chars": "B",
+			"font-family": "'theme-icons'"
+		}
+	},
+	
+	"color_palette": {
+		"primary" : {
+			"name":"Primary",
+			"color":"#1976d2"
+		},
+		"secondary": {
+			"name":"Secondary",
+			"color":"#7edeea"
+		},
+		"dark-gray":{
+			"name":"Dark Gray",
+			"color":"#6b6b6b"
+		},
+		"light-gray": {
+			"name":"Light Gray",
+			"color":"#F6F7F9"
+		},
+		"white": {
+			"name":"White",
+			"color":"#ffffff"
+		},
+		"gradient": {
+			"name":"Corporate gradient",
+			"color":"linear-gradient(to bottom, #1976d2, #11508e)"
+		}		
+	}
+}

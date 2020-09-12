@@ -1,0 +1,221 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+input[type="radio"],
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select {
+	display: block;
+	color: $color__text-input;
+	border: 1px solid $color__border-input;
+	border-radius: 3px;
+	transition: border-color 0.1s linear;
+	width: 100%;
+	padding: 9px 10px;
+	height: 40px;
+	text-align: left;
+	vertical-align: middle;
+	background: #fff;
+
+	&:focus {
+		color: $color__text-input-focus;
+		border: 1px solid $color__corporate;
+	}
+
+	&:focus,
+	&:active,
+	&:hover {
+		outline: none;
+	}
+
+	&.error {
+		border-color: $color__error;
+	}
+}
+
+::-webkit-input-placeholder {
+	color: #bbb;
+}
+::-moz-placeholder {
+	color: #bbb;
+}
+:-ms-input-placeholder {
+	color: #bbb;
+}
+:-moz-placeholder {
+	color: #bbb;
+}
+
+textarea {
+	height: auto;
+	min-height: 60px;
+	max-width: 100%;
+}
+
+label {
+	font-weight: bold;
+	display: block;
+	padding: 8px 12px 4px 0;
+	@include font-size(.9);
+	overflow-wrap: break-word;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+legend {
+	@include font-size(.8);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	vertical-align: middle;
+
+	+ span {
+		font-weight: normal;
+		padding-left: 9px;
+		vertical-align: middle;
+	}
+}
+
+input[type="radio"] {
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 2px $color__border-input;
+	position: relative;
+	margin-right: 5px;
+	height: 1em;
+	width: 1em;
+	cursor: pointer;
+
+	&:checked {
+		box-shadow: 0 0 0 2px $color__corporate;
+		background-color: $color__corporate;
+	}
+}
+
+input[type="checkbox"] {
+	border: 2px solid $color__border-input;
+	height: 1.25em;
+	width: 1.25em;
+	border-radius: 3px;
+	border-color: $color__corporate;
+	background-image: url("images/svg/check.svg");
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position: -999px;
+	overflow: hidden;
+	cursor: pointer;
+
+	&:checked {
+		background-position: center;
+	}
+}
+
+select {
+	position: relative;
+	padding-right: 50px;
+}
+
+.select2-selection:focus {
+	outline: none;
+}
+
+.select2-container .select2-selection.select2-selection--single {
+	height: 40px;
+
+	.select2-selection__rendered,
+	.select2-selection__arrow {
+		line-height: 40px;
+		height: 40px;
+	}
+}
+
+.select2-results__options {
+
+	li {
+		@include font-size(.85);
+		padding-top: 3px;
+		padding-bottom: 3px;
+		margin-bottom: 0;
+
+		&:before {
+			display: none;
+		}
+
+		&.select2-results__option--highlighted[data-selected] {
+			background: $color__corporate;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+input[type="submit"] {
+   margin-bottom: 18px;
+   width: 100%;
+   cursor: pointer;
+}
+
+.fn-date-picker .pika-lendar {
+
+	.pika-prev,
+	.pika-next {
+		box-shadow: none;
+		border-radius: 0;
+	}
+
+	.pika-button {
+		border-radius: 0;
+		box-shadow: none !important;
+		background: none !important;
+
+		&:hover {
+			background: $color__background-light !important;
+			color: #666 !important;
+		}
+	}
+
+	.is-selected .pika-button {
+		background: $color__corporate !important;
+		box-shadow: none !important;
+	}
+
+	.is-today .pika-button {
+		color: $color__corporate !important;
+	}
+}

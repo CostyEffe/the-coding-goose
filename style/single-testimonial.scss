@@ -1,0 +1,22 @@
+/*--------------------------------------------------------------
+# Functions and vars
+--------------------------------------------------------------*/
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Blocks
+--------------------------------------------------------------*/
+@import "blocks/blocks";
+
+.site-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .wp-block-svbk-testimonial {
+        margin-top: 0;
+        background-color: rgba(255,255,255,0);
+        box-shadow: none;
+        padding: 0;
+    }
+}

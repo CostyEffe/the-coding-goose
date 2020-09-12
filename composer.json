@@ -1,0 +1,42 @@
+{
+    "name": "silverbackstudio/theme_svbk",
+    "description": "Silverback _svbk Theme",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brando Meniconi",
+            "email": "b.meniconi@silverbackstudio.io"
+        }
+    ],
+    "repositories": [
+        {
+          "type": "composer",
+          "url": "https://wpackagist.org"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.svbk.it"
+        }
+    ],    
+    "require": {
+        "silverback/wp-helpers": "^5.4.0"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^1.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.2",
+        "wimg/php-compatibility": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {"Svbk\\WP\\Theme\\_svbk\\": "inc/"},
+        "classmap": [ "classes/" ]
+    },    
+    "scripts": {
+        "test": [
+          "vendor/bin/phpcs"
+        ],
+        "beautify": [
+          "vendor/bin/phpcbf"
+        ]        
+    }        
+}

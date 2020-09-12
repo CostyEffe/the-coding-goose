@@ -1,0 +1,78 @@
+ul, ol {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	list-style: none;
+
+	li {
+		margin-bottom: 8px;
+
+		&:before {
+			line-height: 1em;
+			color: $color__corporate-secondary;
+		}
+	}
+}
+
+ul {
+	padding-left: .8em;
+
+	li:before {
+		content: "\2022";
+		font-size: 1.2em;
+		display: inline-block;
+		width: .8em;
+		margin-left: -.8em;
+		line-height: 1em;
+		vertical-align: middle;
+		margin-bottom: .25em;
+	}
+
+	&.is-style-bullets {
+		padding-left: 0;
+
+		li {
+			margin-bottom: 15px;
+			padding-left: 33px;
+			text-indent: -16px;
+	
+			&:before {
+				@include icon-content('\e90c');
+				font-size: 1em;
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+ol {
+	counter-reset: li;
+	padding-left: 1.5em;
+
+	> li {
+		counter-increment: li;
+
+		&:before {
+			content: "." counter(li);
+			display: inline-block;
+			font-weight: 600;
+			width: 1em;
+			margin-left: -1.5em;
+			margin-right: 0.5em;
+			text-align: right;
+			direction: rtl;
+		}
+	}
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+}
+
+dt {
+	font-weight: 600;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}

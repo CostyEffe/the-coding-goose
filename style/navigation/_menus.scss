@@ -1,0 +1,303 @@
+@import '../blocks/animations';
+
+#main-navigation {
+	display: block;
+	top: $size__header-height-mobile;
+	bottom: 0;
+	overflow: auto;
+	padding: 20px;
+	background-color: #fff;
+	box-shadow: 0 0 3px rgba(0,0,0,.0);
+	transition: right .5s ease-in-out, box-shadow .5s ease-in-out;
+
+	.menu-toggled-on & {
+		right: 0;
+	}
+
+	ul {
+
+		li {
+
+			&.current-menu-item:not(.cta-item) > a,
+			&.current-menu-ancestor:not(.cta-item) > a {
+				color: $color__corporate;
+				border-bottom: none;
+				font-weight: 600;
+			}
+
+			a {
+
+				&:focus {
+					background: none;
+					outline: none;
+				}
+			}
+
+			&:before {
+				display: none;
+			}
+
+			&.cta-item {
+
+				a {
+					padding: .7em 1.2em;
+					display: block;
+					text-align: center;
+					margin-top: 20px;
+					font-weight: 600;
+					color: $color__border-button;
+					border-width: 2px;
+					border-style: solid;
+					border-color: $color__border-button;
+					border-radius: $border-radius__button;
+
+					&:hover {
+						color: $color__border-button-hover;
+						border-color: $color__border-button-hover;
+					}
+				
+					&:active,
+					&:focus {
+						color: $color__border-button-focus;
+						border-color: $color__border-button-focus;
+					}
+				}
+			}
+		}
+	}
+
+	.menu-item-has-children {
+
+		> a {
+			position: relative;
+			padding-right: 25px;
+		}
+
+		> a:after {
+			@include icon-content("\e90e");
+			@include font-size(.45);
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 0;
+		}
+
+		.sub-menu {
+			clip: initial;
+			position: initial;
+			height: auto;
+			width: auto;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height .8s ease;
+			line-height: normal;
+
+			li {
+				padding-bottom: 0;
+
+				a {
+					text-transform: none;
+				}
+			}
+		}
+
+		&.expanded {
+
+			> a:after {
+				@include icon-content("\e90b");
+			}
+
+			.sub-menu {
+				max-height: 200px;
+				padding-bottom: 10px;
+				display: block;
+			}
+		}
+	}
+
+	@media screen and (min-width: breakpoint('phone')) {
+		width: 300px;
+		box-shadow: -1px 4px 4px rgba(0,0,0,.6);
+	}
+
+	@media screen and (min-width: breakpoint('desktop-nav')) {
+		padding: 0;
+		width: auto;
+		box-shadow: none;
+		overflow: visible;
+
+		ul {
+
+			li {
+				
+				a {
+					transition: color .15s ease-in-out;
+					display: block;
+					
+					&:hover {
+						color: $color__corporate;
+					}
+				}
+
+				&.cta-item {
+					margin-left: 5px;
+
+					a {
+						display: inline;
+						margin-top: 0;
+					}
+				}
+
+				&.current-menu-item:not(.cta-item),
+				&.current-menu-ancestor:not(.cta-item) {
+					position: relative;
+
+					&:after {
+						content: '';
+						display: block;
+						height: 3px;
+						width: 100%;
+						background: $color__corporate;
+					}
+				}
+
+				&:last-of-type {
+					margin-right: 0;
+				}
+			}
+		}
+
+		.menu-item-has-children {
+			transition: none;
+
+			.sub-menu {
+				display: none;
+				overflow: visible;
+				background-color: $color__background-sub-menu;
+				position: absolute;
+				z-index: 10;
+				padding: 15px 10px 20px;
+				margin-left: -10px;
+				width: 190px;
+				text-align: left;
+
+				li {
+					float: none;
+					margin-bottom: 15px;
+
+					&:last-of-type {
+						margin-bottom: 0;
+					}
+
+					a {
+						line-height: normal;
+						height: auto;
+					}
+
+					&.current-menu-item:after {
+						display: none;
+					}
+				}
+			}
+
+			&:hover,
+			&.expanded {
+				background-color: $color__background-sub-menu;
+
+				&[class*="current"] {
+					position: static;
+
+					&:after {
+						background-color: rgba(255,255,255,0);
+					}
+				}
+
+				> a:after {
+					@include icon-content("\e90b");
+				}
+	
+				.sub-menu {
+					max-height: 300px;
+					display: block;
+					padding: 20px 10px;
+					box-shadow: 1px 3px 3px rgba(0,0,0,.2);
+				}
+			}
+
+			&.expanded,
+			&:hover {
+
+				a:after {
+					color: $color__corporate
+				}
+			}
+
+			> a:after {
+				@include icon-content("\e90b");
+				position: static;
+				margin-left: 5px;
+			}
+		}
+	}
+}
+
+#primary-menu > li:not(.cta-item) {
+	border-bottom: 1px solid $color__background-hr;
+
+	@media screen and (min-width: breakpoint('desktop-nav')) {
+		border: none;
+		padding: 0 10px;
+
+		a {
+			padding: 0;
+		}
+	}
+}
+
+.main-navigation-toggle {
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: none;
+		color: $color__text-main;
+		box-shadow: none;
+	}
+
+	&:before {
+
+		.menu-toggled-on & {
+			@include icon-content("\e903");
+		}
+	}
+}
+
+.menu-toggled-on {
+
+	@media screen and (max-width: breakpoint('desktop-nav')) {
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+	
+		&:before {
+			content: "";
+			position: absolute;
+			display: block;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba(0,0,0,.8);
+			z-index: 9;
+			animation: fadeIn .5s ease-in-out;
+		}
+	}
+}
+
+.top-header,
+.site-footer {
+
+	.sub-menu {
+		display: none;
+	}
+}

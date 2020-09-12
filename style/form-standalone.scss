@@ -1,0 +1,257 @@
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+@import "typography/critical";
+@import "forms/fields";
+
+body {
+	background: rgba(255,255,255,0);
+}
+
+.inputs-list {
+	padding: 0;
+
+	li {
+
+		&:before {
+			display: none;
+		}
+	}
+}
+
+.hs-form-required,
+.hs-error-msgs li {
+	color: $color__error;
+}
+
+.hs-error-msgs {
+	margin: 0;
+
+	li label {
+		font-weight: normal;
+		padding: 0;
+	}
+}
+
+.legal-consent-container ~ .hs_recaptcha {
+	margin-bottom: 15px;
+}
+
+.legal-consent-container {
+	@include font-size(.7);
+	margin: 18px 0;
+	line-height: 1.3em;
+
+	p, .inputs-list {
+		margin: 15px 0;
+	}
+
+	label {
+		@include font-size(.75);
+	}
+}
+
+.wp-block-hubspot-form {
+
+	.hs-form-iframe {
+		height: auto !important;
+	}
+
+	form {
+		margin: 0;
+	}
+
+	a {
+		color: inherit;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	input[type="number"],
+	input[type="tel"],
+	input[type="range"],
+	input[type="date"],
+	input[type="month"],
+	input[type="week"],
+	input[type="time"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="color"],
+	textarea,
+	select {
+		background: #fff !important;
+		max-width: none;
+		width: 100% !important;
+
+		&:focus {
+			border-color: $color__corporate;
+		}
+	}
+
+	.hs-submit {
+		margin-top: 15px;
+		
+		input {
+			border-color: $color__corporate;
+		}
+	}
+
+	input[type="submit"] {
+		background: $color__background-button;
+		color: $color__text-button;
+		border: none;
+		border-radius: $border-radius__button;
+		text-transform: uppercase;
+
+		&:hover {
+			background-color: $color__background-button-hover !important;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.35);
+		}
+
+		&:active,
+		&:focus {
+			background-color: $color__background-button-focus !important;
+			box-shadow: 0 0 2px rgba(0,0,0,0.4);
+		}
+	}
+
+	.form-columns-1 .hs-form-field .input {
+		margin-right: 0;
+	}
+
+	fieldset.form-columns-2 {
+
+		.hs-form-field {
+			width: 100%;
+		}
+
+		.input {
+			margin-right: 0;
+		}
+
+		@media screen and (min-width: 440px) {
+
+			.hs-form-field {
+				width: 49% !important;
+
+				&:first-of-type {
+					margin-right: 2%;
+				}
+			}
+		}
+	}
+
+	label {
+		color: $color__text-main;
+		margin-bottom: 0;
+		padding-top: 0;
+	}
+
+	textarea {
+		min-height: 100px;
+	}
+
+	input[type="radio"].hs-input {
+		border: 2px solid #fff;
+		box-shadow: 0 0 0 2px #000;
+		height: 1em !important;
+		width: 1em !important;
+		margin-left: 2px;
+
+		&:checked {
+			box-shadow: 0 0 0 2px #000;
+		}
+	}
+
+	input[type="checkbox"] {
+		border: 2px solid;
+		height: 1.25em !important;
+		width: 1.25em !important;
+		border-radius: 3px;
+	}
+
+	.legal-consent-container {
+		margin: 20px 0 10px;
+		background: rgba(0,0,0,.03);
+		padding: 5px 15px 8px;
+		border-radius: $border-radius;
+
+		.hs-richtext,
+		label {
+			@include font-size(.7);
+			line-height: 1.3em;
+		}
+		
+		label {
+			min-height: 25px;
+
+			input[type="checkbox"],
+			span {
+				vertical-align: middle;
+			}
+			
+			input[type="checkbox"] {
+				float: none;
+				display: inline-block;
+			}
+			
+			span {
+				display: inline;
+				margin-left: 0;
+			}
+		}
+
+		.inputs-list {
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 0;
+			}
+		}
+	}
+
+	.field {
+		margin-bottom: 10px;
+	}
+
+	.hs-error-msgs {
+		margin-top: 3px;
+
+		label {
+			color: $color__error;
+		}
+	}
+
+	.actions {
+		margin: 0;
+		padding: 0;
+	}
+
+	.hubspot-link__container {
+		display: none;
+	}
+
+	&.is-style-dark {
+
+		.legal-consent-container {
+			background: rgba(0,0,0,.08);
+		}
+
+		label,
+		.hs-richtext,
+		a {
+			color: #fff;
+		}
+
+		input[type="checkbox"] {
+			border-color: #aaa;
+		}
+
+		input[type="radio"] {
+			box-shadow: 0 0 0 2px #aaa;
+		}
+	}
+}

@@ -1,0 +1,146 @@
+.wp-block-svbk-warranty {
+	padding-top: 130px;
+	padding-bottom: 70px;
+	color: $color__text-main;
+	position: relative;
+	padding-left: $padding__content-mobile + 10px;
+	padding-right: $padding__content-mobile + 10px;
+
+	p {
+		max-width: none;
+	}
+	
+	figure {
+		margin-top: -81px;
+		text-align: center;
+
+		img {
+			margin: 0 auto;
+			display: block;
+			width: 200px;
+			height: 160px;
+			object-fit: contain;
+		}
+	}
+	
+	> img {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+	}
+	
+	@media screen and (min-width: breakpoint('tablet-portrait')) {
+		padding-left: $padding__content-tablet + 10px;
+		padding-right: $padding__content-tablet + 10px;
+	}
+	
+	&.is-style-small {
+		padding: 100px 10px 0;
+
+		.wp-block-svbk-warranty__content {
+			border-radius: 0;
+		}
+
+		> img {
+			display: none;
+		}
+
+		@media screen and (min-width: breakpoint('tablet-landscape')) {
+			padding-top: 70px;
+			padding-bottom: 70px;
+
+			> img {
+				display: block;
+			}
+
+			.wp-block-svbk-warranty__seal {
+				margin: 0;
+				position: absolute;
+				top: 50%;
+				left: 120px;
+				transform: translateY(-50%) translateX(-50%);
+				
+				img {
+					width: 140px;
+					height: auto;
+					margin: 0;
+					object-fit: contain;
+				}
+			}
+
+			.wp-block-svbk-warranty__content {
+				padding: 25px 25px 25px 250px;
+				min-height: 200px;
+				line-height: 1.4em;
+			}
+
+			.wp-block-svbk-warranty__header {
+				text-align: left;
+
+				&:after {
+					margin-left: 0;
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+.wp-block-svbk-warranty__content {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	z-index: 1;
+	padding: 0 20px 30px;
+	background-color: #fff;
+	color: $color__text-main;
+	border: 2px solid #d0a83a;
+	border-radius: $border-radius;
+	box-shadow: 0 0 0 10px rgba(255,255,255,1), 1px 1px 4px rgba(0,0,0,.1), 0 0 12px 3px #000;
+
+	@each $name, $value in $colors {
+
+		&.has-#{$name}-background-color {
+			box-shadow: 0 0 0 10px $value, 1px 1px 4px rgba(0,0,0,.1), 0 0 12px 3px #000;
+		}
+	}
+	
+	@media screen and (min-width: breakpoint('tablet-landscape')) {
+		padding-left: 35px;
+		padding-right: 35px;
+	}
+}
+
+.wp-block-svbk-warranty__header {
+	text-align: center;
+	
+	&:after {
+		content: '';
+		display: block;
+		height: 2px;
+		width: 50px;
+		margin: 17px auto;
+		background-color: $color__background-hr;
+	}
+}
+
+.wp-block-svbk-warranty__title {
+	max-width: none;
+	padding-top: 0;
+	margin: 10px 0;
+}
+
+.wp-block-svbk-warranty__subtitle {
+	margin: 10px auto;
+}
+
+.wp-block-svbk-warranty__footer {
+	@include font-size(.8);
+	line-height: 1.25em;
+}

@@ -1,0 +1,67 @@
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+@import "captions";
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+@import "galleries";
+
+.wp-has-aspect-ratio .wp-block-embed__wrapper,
+.aspect-ratio,
+.video {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+	height: 0;
+
+	iframe {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.wp-block-embed.is-type-video {
+	
+	.has-primary-background-color &,
+	.has-secondary-background-color &,
+	.has-dark-background-color & {
+		border-color: #fff;
+	}
+}
+
+.wp-block-image {
+
+	img {
+		display: block;
+	}
+	
+	&.is-style-rounded img {
+		border-radius: 50%;
+	}
+	
+	&.is-style-rounded-corners img {
+		border-radius: $border-radius;
+	}
+}
